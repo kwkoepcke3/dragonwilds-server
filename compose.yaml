@@ -1,6 +1,7 @@
 services:
   dragonwilds:
     image: rockylinux:9
+    container_name: dragonwilds
     # dragonwilds:dragonwilds
     user: "983:982"
     ports: 
