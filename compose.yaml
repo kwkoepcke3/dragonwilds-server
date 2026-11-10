@@ -1,0 +1,16 @@
+services:
+  dragonwilds:
+    image: rockylinux:9
+    # dragonwilds:dragonwilds
+    user: "983:982"
+    ports: 
+      - "7777:7777/tcp"
+      - "7777:7777/udp"
+      - "8888:8888/udp"
+    volumes:
+      - "/home/user/dragonwilds/app:/app"
+    working_dir: /app
+    command: ./RSDragonwildsServer.sh -log -NewConsole
+     
+
+
