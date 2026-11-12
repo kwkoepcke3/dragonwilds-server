@@ -1,7 +1,7 @@
 docker run \
 	-u "$(id -u dragonwilds):$(id -g dragonwilds)" \
 	-e HOME=/steamcmd-data \
-	--tmpfs /steamcmd-data:uid=$(id -u dragonwilds),gid=$(id -g dragonwilds),exec,mode=1770 \
+	-v /home/user/dragonwilds/app/steamcmd-data:/steamcmd-data \
 	-v /home/user/dragonwilds/app:/app \
 	steamcmd/steamcmd:rocky-9 \
 	steamcmd \
