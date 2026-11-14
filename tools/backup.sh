@@ -1,15 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /home/user/dragonwilds/stage
-cp /home/user/dragonwilds/app/RSDragonwilds/Saved/SaveGames/ANTARCTICA* ./
+SAVE_NAME=ANTARCTICA
+BACKUP_NAME="$SAVE_NAME-$(date +"%m-%d-%y-%H-%M-%S").tar.gz"
 
-NAME=ANTARCTICA-$(date +"%m-%d-%y-%H-%M-%S").tar.gz
-tar -czvf $NAME ./*
-
-mv $NAME /opt/dragonwilds/ANTARCTICA
-
-rm -rf ./*
-
-
-
+tar -C /home/user/dragonwilds/app/RSDragonwilds/Saved/SaveGames -czvf "/opt/dragonwilds/$SAVE_NAME/$BACKUP_NAME" $SAVE_NAME.sav $SAVE_NAME.sav.backup
