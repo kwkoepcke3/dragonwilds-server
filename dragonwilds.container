@@ -4,11 +4,17 @@ ContainerName=dragonwilds
 Exec=./RSDragonwildsServer.sh -log
 Image=rockylinux:9
 Label=service.group=dragonwilds
+StopSignal=SIGTERM
 PublishPort=7777:7777/udp
 PublishPort=8888:8888/udp
+StopTimeout=100
 UserNS=keep-id
 Volume=/home/user/dragonwilds/app:/app:z
 WorkingDir=/app
 
 [Service]
 Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=default.target
