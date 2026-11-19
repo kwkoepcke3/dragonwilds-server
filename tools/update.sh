@@ -1,8 +1,10 @@
-docker run \
-	-u "$(id -u dragonwilds):$(id -g dragonwilds)" \
+#!/usr/bin/env bash
+
+podman run \
+        --userns=keep-id \
 	-e HOME=/steamcmd-data \
-	-v /home/user/dragonwilds/app/steamcmd-data:/steamcmd-data \
-	-v /home/user/dragonwilds/app:/app \
+	-v /home/user/dragonwilds/app/steamcmd-data:/steamcmd-data:z \
+	-v /home/user/dragonwilds/app:/app:z \
 	steamcmd/steamcmd:rocky-9 \
 	steamcmd \
 	+force_install_dir /app \
