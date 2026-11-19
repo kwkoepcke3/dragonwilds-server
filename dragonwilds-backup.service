@@ -1,0 +1,7 @@
+[Unit]
+Description=Backup Dragonwilds
+
+[Service]
+Type=oneshot
+ExecStart=%h/dragonwilds/tools/backup.sh
+WorkingDirectory=%h/dragonwilds
